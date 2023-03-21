@@ -15,41 +15,41 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Mobile output class for qtype_YOURQTYPENAME
+ * Mobile output class for qtype_rosetta
  *
- * @package    qtype_YOURQTYPENAME
+ * @package    qtype_rosetta
  * @copyright  2018 YOUR NAME
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace qtype_YOURQTYPENAME\output;
+namespace qtype_rosetta\output;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Mobile output class for YOURQTYPENAME question type
+ * Mobile output class for rosetta question type
  *
- * @package    qtype_YOURQTYPENAME
- * @copyright  20XX YOUR NAME
+ * @package    qtype_rosetta
+ * @copyright  2023 vdella
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mobile {
 
     /**
-     * Returns the YOURQTYPENAME question type for the quiz the mobile app.
+     * Returns the rosetta question type for the quiz the mobile app.
      *
      * @return void
      */
-    public static function mobile_get_YOURQTYPENAME() {
+    public static function mobile_get_rosetta() {
         global $CFG;
         return [
             'templates' => [
                 [
                     'id' => 'main',
-                    'html' => file_get_contents($CFG->dirroot .'/question/type/YOURQTYPENAME/mobile/qtype-YOURQTYPENAME.html')
+                    'html' => file_get_contents($CFG->dirroot .'/question/type/rosetta/mobile/qtype-rosetta.html')
                     ]
             ],
-            'javascript' => file_get_contents($CFG->dirroot . '/question/type/YOURQTYPENAME/mobile/mobile.js')
+            'javascript' => file_get_contents($CFG->dirroot . '/question/type/rosetta/mobile/mobile.js')
         ];
     }
 }

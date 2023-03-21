@@ -16,8 +16,8 @@
 /**
  * Contains the helper class for the select missing words question type tests.
  *
- * @package    qtype_YOURQTYPENAME
- * @copyright  Year Yourname
+ * @package    qtype_rosetta
+ * @copyright  2023 vdella
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
@@ -25,8 +25,8 @@ defined('MOODLE_INTERNAL') || die();
   /**
    * utilities used by the other test classes
    *
-   * @package    qtype_YOURQTYPENAME
-   * @copyright  YEAR YOURNAME
+   * @package    qtype_rosetta
+   * @copyright  2023 vdella
    * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
    */
   class helper extends question_test_helper {

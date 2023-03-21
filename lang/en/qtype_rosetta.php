@@ -15,17 +15,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qtype_YOURQTYPENAME', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'qtype_rosetta', language 'en', branch 'MOODLE_20_STABLE'
  *
  * @package    qtype
- * @subpackage YOURQTYPENAME
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @subpackage rosetta
+ * @copyright  2023 vdella (vitor.origamer@gmail.com)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$string['pluginname'] = 'YOURQTYPENAME';
-$string['pluginname_help'] = 'Create a YOURQTYPENAME question type with insert question description here.';
-$string['pluginname_link'] = 'question/type/YOURQTYPENAME';
-$string['pluginnameadding'] = 'Adding a YOURQTYPENAME question';
-$string['pluginnameediting'] = 'Editing a YOURQTYPENAME question';
-$string['pluginnamesummary'] = 'A YOURQTYPENAME question type that allows something to be done that can test a student on some understanding.';
+$string['pluginname'] = 'rosetta';
+$string['pluginname_help'] = 'Create a rosetta question type with insert question description here.';
+$string['pluginname_link'] = 'question/type/rosetta';
+$string['pluginnameadding'] = 'Adding a rosetta question';
+$string['pluginnameediting'] = 'Editing a rosetta question';
+$string['pluginnamesummary'] = 'A rosetta question type that allows something to be done that can test a student on some understanding.';

@@ -18,8 +18,8 @@
  * Serve question type files
  *
  * @since      2.0
- * @package    qtype_YOURQTYPENAME
- * @copyright  THEYEAR YOURNAME (YOURCONTACTINFO)
+ * @package    qtype_rosetta
+ * @copyright  2023 vdella (vitor.origamer@gmail.com)
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,8 +29,8 @@ defined('MOODLE_INTERNAL') || die();
 
 
 /**
- * Checks file access for YOURQTYPENAME questions.
- * @package  qtype_YOURQTYPENAME
+ * Checks file access for rosetta questions.
+ * @package  qtype_rosetta
  * @category files
  * @param stdClass $course course object
  * @param stdClass $cm course module object
@@ -41,8 +41,8 @@ defined('MOODLE_INTERNAL') || die();
  * @param array $options additional options affecting the file serving
  * @return bool
  */
-function qtype_YOURQTYPENAME_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
+function qtype_rosetta_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
     global $DB, $CFG;
     require_once($CFG->libdir . '/questionlib.php');
-    question_pluginfile($course, $context, 'qtype_YOURQTYPENAME', $filearea, $args, $forcedownload, $options);
+    question_pluginfile($course, $context, 'qtype_rosetta', $filearea, $args, $forcedownload, $options);
 }

@@ -61,12 +61,3 @@ unzip it into the question/type folder, and then rename the new folder to TEMPLA
 
 You can keep a copy of the template in Moodle in the question/type/ folder and as long as it is called TEMPLATE the plug in will
 be ignored.
-
-## Use
-
-* Copy or rename the module directory to YOURQTYPENAME.
-* Replace all occurances of YOURQTYPENAME in files with the new name for your question type.
-* Rename files that have YOURQTYPENAME replacing YOURQTYPENAME with the new name for your question type.
-* Replace '@copyright  THEYEAR YOURNAME (YOURCONTACTINFO)' with something like @copyright  2016 Marcus Green (mgreen@example.org)
-* See http://docs.moodle.org/dev/Question_types for more info on how to create a question type plug in. Please add to it where
- you can.
