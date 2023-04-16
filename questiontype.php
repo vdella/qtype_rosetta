@@ -29,9 +29,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+global $CFG;
+
 require_once($CFG->libdir . '/questionlib.php');
 require_once($CFG->dirroot . '/question/engine/lib.php');
 require_once($CFG->dirroot . '/question/type/rosetta/question.php');
+require_once($CFG->dirroot . '/question/type/rosetta/classes/fl_machine_test.php');
 
 
 /**
@@ -49,12 +52,15 @@ class qtype_rosetta extends question_type {
     }
     public function move_files($questionid, $oldcontextid, $newcontextid) {
         parent::move_files($questionid, $oldcontextid, $newcontextid);
-        $this->move_files_in_hints($questionid, $oldcontextid, $newcontextid);
+        $fs = get_file_storage();
+        $fs->move_area_files_to_new_context($oldcontextid,
+            $newcontextid, 'qtype_essay', 'graderinfo', $questionid);
     }
 
     protected function delete_files($questionid, $contextid) {
         parent::delete_files($questionid, $contextid);
-        $this->delete_files_in_hints($questionid, $contextid);
+        $fs = get_file_storage();
+        $fs->delete_area_files($contextid, 'qtype_essay', 'graderinfo', $questionid);
     }
      /**
      * @param stdClass $question
@@ -83,17 +89,34 @@ class qtype_rosetta extends question_type {
  * also make $DB calls to get data from other tables
  */
    public function get_question_options($question) {
-     //TODO
-       parent::get_question_options($question);
+       global $CFG, $DB, $OUTPUT;
+       if (parent::get_question_options($question)) {
+
+           // Fetch and Parse Tests from DB (indexed by id)
+           $tests = array_map(
+               function ($db_test) {
+                   return fl_machine_test::from_db_entry_to_array($db_test);
+               },
+               $DB->get_records('qtype_rosetta_tests', array('question_id' => $question->id))
+           );
+
+           // Insert tests into question object
+           $question->machine_tests = $tests ? [...$tests] : array();
+
+           return true;
+       }
+       return false;
     }
 
  /**
  * executed at runtime (e.g. in a quiz or preview 
  **/
     protected function initialise_question_instance(question_definition $question, $questiondata) {
+        // Load parent data
         parent::initialise_question_instance($question, $questiondata);
-        $this->initialise_question_answers($question, $questiondata);
-        parent::initialise_combined_feedback($question, $questiondata);
+        // Load tests
+        error_log("[initialise_question_instance]\n".print_r($questiondata->machine_tests, true));
+        $question->machine_tests = $questiondata->machine_tests;
     }
     
    public function initialise_question_answers(question_definition $question, $questiondata,$forceplaintextanswers = true){ 
