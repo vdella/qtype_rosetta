@@ -37,7 +37,7 @@ defined('MOODLE_INTERNAL') || die();
  * @param stdClass $context context object
  * @param string $filearea file area
  * @param array $args extra arguments
- * @param bool $forcedownload whether or not force download
+ * @param bool $forcedownload whether force download
  * @param array $options additional options affecting the file serving
  * @return bool
  */
