@@ -1,4 +1,4 @@
-from machina.state import State
+from state import State
 from prettytable import PrettyTable
 
 
