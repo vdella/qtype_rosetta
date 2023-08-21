@@ -9,7 +9,6 @@ class FiniteAutomata:
         self.states = {self.initial_state}
         self.transitions = dict()
         self.final_states = set()
-        self.symbol_table = list()
 
     def read(self, sentence: str) -> bool:
         """Iteratively loops over a transition table and
@@ -41,11 +40,6 @@ class FiniteAutomata:
             if transition == '&' or len(arrival) != 1:
                 return True
         return False
-
-    def gen_st(self, identifier: str) -> int:
-        if identifier not in self.symbol_table:
-            self.symbol_table.append(identifier)
-        return self.symbol_table.index(identifier)
 
     def __or__(self, other):
         new_fa = FiniteAutomata()
